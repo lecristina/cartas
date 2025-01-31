@@ -25,7 +25,7 @@ body {
 	flex-direction: column;
 	padding: 12px;
     gap: 5px;
-    position: absolute; /*serve para os cartoe ficarem um em cima do outro, se tem absolute, precisa do relative em algum momento tambem*/
+    position: absolute;
 }
 
 .cartao.selecionado {
@@ -37,7 +37,8 @@ body {
 	width: 300px;
 	height: 500px;
 	border-radius: 10px;
-    position: relative; /*serve para os cartoe ficarem um em cima do outro, se tem absolute, precisa do relative em algum momento tambem*/
+    position: relative;
+	padding: 12px;
 }
 
 .slider {
@@ -144,14 +145,14 @@ body {
 }
 
 .btn-seta.btn-voltar{
-    transform: rotateY(180deg); /*muda a posição da seta para o outro lado*/
+    transform: rotateY(180deg);
 }
 
 .btn-seta:hover{
     background-color: #8351fe;
 }
 
-body::-webkit-scrollbar-track{ /*estilização do scrool da carta*/
+body::-webkit-scrollbar-track{
     background-color: #c08057;
 }
 
@@ -166,4 +167,31 @@ body::-webkit-scrollbar-track{ /*estilização do scrool da carta*/
 
 ::-webkit-scrollbar-thumb:hover {
     background: #c08057;
+}
+
+.carta-virada {
+	display: none;
+}
+
+.carta-virada.mostrar-fundo-carta {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url(../imagens/fundo-carta.jpg);
+	background-size: cover;
+	background-position: center;
+	top: 0;
+	left: 0;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+.cartao.virar {
+	transform: rotateZ(90deg);
+	transition: transform 0.3s ease-in-out;
+}
+
+.esconder {
+	display: none;
 }
